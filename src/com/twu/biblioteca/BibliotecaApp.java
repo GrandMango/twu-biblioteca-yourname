@@ -60,6 +60,7 @@ public class BibliotecaApp {
                 option = input.nextInt();
             } catch (Exception e) {
                 System.out.println("Please select a valid options!");
+                input.nextLine();
                 continue;
             }
             switch (option) {
@@ -72,16 +73,15 @@ public class BibliotecaApp {
                     waitForEnterAnyKey(input);
                     break;
                 case 3:
-                    System.out.println("Please enter bookId to borrow a book");
-                    String str = input.next();
-                    bookList.borrowBookById(str);
-                    waitForEnterAnyKey(input);
-/*                    if(str.matches("#[0-9]*"))
+                    System.out.println("Please enter bookId or BookName to borrow a book");
+                    input.nextLine();
+                    String str = input.nextLine();
+
+                    if(str.matches("#[0-9]*"))
                         bookList.borrowBookById(str);
                     else
                         bookList.borrowBookByName(str);
-                        */
-
+                    waitForEnterAnyKey(input);
                     break;
                 case 4:
                     System.out.println("Please enter bookId to return a book");
