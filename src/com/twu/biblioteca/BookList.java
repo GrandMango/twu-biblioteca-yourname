@@ -30,15 +30,30 @@ public class BookList {
         }
         return list;
     }
-
-    public String  printList() {
+    private void printTitle(){
         System.out.printf("* " + "%-6s", "Id");
         System.out.printf("* " + "%-30s", "Book_Name");
         System.out.printf("* " + "%-15s", "Author_Name");
         System.out.printf("* " + "%-5s", "Year");
         System.out.printf("* " + "%-10s", "Status");
         System.out.println("*");
+    }
+    public String  printOverviewList() {
+        printTitle();
+        for (Book book:bookList) {
+            if(book.getIsAvailable().equals("Available")) {
+                System.out.printf("| " + "%-6s", book.getId());
+                System.out.printf("| " + "%-30s", book.getBookName());
+                System.out.printf("| " + "%-10s", book.getIsAvailable());
+                System.out.println("|");
+            }
+        }
+        System.out.println("Find " + bookList.size() + " available books.");
+        return " ";
+    }
 
+    public String  printDetailList() {
+        printTitle();
         for (Book book:bookList) {
             if(book.getIsAvailable().equals("Available")) {
                 System.out.printf("| " + "%-6s", book.getId());

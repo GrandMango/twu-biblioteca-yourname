@@ -15,10 +15,13 @@ public class BookListTest {
         this.Main = new BookList();
     }
 
-
+    @Test
+    public void printDetailList(){
+        assertThat(Main.printDetailList(), equalTo(" "));
+    }
 
     @Test
-    public void printList(){
-        assertThat(Main.printList(), equalTo(" "));
+    public void printOverviewList(){
+        assertThat(Main.printOverviewList(), equalTo(" "));
     }
 }
