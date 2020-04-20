@@ -10,8 +10,19 @@ public class BibliotecaApp {
         System.out.println(output);
         return output;
     }
-    
 
+    public void showMenu(){
+        System.out.println("*****************************************");
+        System.out.println("************ Control Panel **************");
+        System.out.println("*****************************************");
+        System.out.println("Enter 1 to see the list of all library books.");
+        System.out.println("Enter 2 to see the list of all library books in detail");
+        System.out.println("Enter 3 to borrow your favorite books.");
+        System.out.println("Enter 4 to return books you borrowed before.");
+        System.out.println("Enter 0 to quit Biblioteca Application");
+        System.out.println("*****************************************");
+    }
+    
     public static void main(String[] args) {
 
     }
