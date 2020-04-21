@@ -10,6 +10,9 @@ public class MovieList {
     private ArrayList<Movie> movieList;
     private String filePath="resources/movie_list.csv";
 
+    public MovieList(){
+        movieList = readFile();
+    }
     private ArrayList<Movie> readFile() {
         String line = null;
         ArrayList<Movie> list = new ArrayList<Movie>();
@@ -52,7 +55,7 @@ public class MovieList {
         System.out.printf("* " + "%-30s", "Movie_Name");
         System.out.printf("* " + "%-15s", "Director_Name");
         System.out.printf("* " + "%-5s", "Year");
-        System.out.printf("* " + "%-5s", "Rating");
+        System.out.printf("* " + "%-7s", "Rating");
         System.out.printf("* " + "%-10s", "Status");
         System.out.println("*");
 
@@ -63,7 +66,7 @@ public class MovieList {
                 System.out.printf("| " + "%-30s", movie.getMovieName());
                 System.out.printf("| " + "%-15s", movie.getDirectorName());
                 System.out.printf("| " + "%-5s", movie.getPublishYear());
-                System.out.printf("| " + "%-5s", movie.getRating());
+                System.out.printf("| " + "%-7s", movie.getRating());
                 System.out.printf("| " + "%-10s", movie.getIsAvailable());
                 System.out.println("|");
                 count++;

@@ -29,8 +29,11 @@ public class BibliotecaApp {
         System.out.println();
         System.out.println("Enter 1 to see the list of all library books.");
         System.out.println("Enter 2 to see the list of all library books in detail");
-        System.out.println("Enter 3 to borrow your favorite books.");
-        System.out.println("Enter 4 to return books you borrowed before.");
+        System.out.println("Enter 3 to see the list of all library movie resources.");
+        System.out.println("Enter 4 to borrow your favorite book.");
+        System.out.println("Enter 5 to return book you borrowed before.");
+        System.out.println("Enter 6 to borrow your favorite movie.");
+        System.out.println("Enter 7 to return movie you borrowed before.");
         System.out.println("Enter 0 to quit Biblioteca Application");
         System.out.println();
         System.out.println("*****************************************");
@@ -75,6 +78,10 @@ public class BibliotecaApp {
                     waitForEnterAnyKey(input);
                     break;
                 case 3:
+                    movieList.printDetailList();
+                    waitForEnterAnyKey(input);
+                    break;
+                case 4:
                     System.out.println("Please enter bookId or bookName to borrow a book");
                     input.nextLine();
                     String str = input.nextLine();
@@ -86,11 +93,23 @@ public class BibliotecaApp {
 
                     waitForEnterAnyKey(input);
                     break;
-                case 4:
+                case 5:
                     System.out.println("Please enter bookId to return a book");
                     bookList.returnBookById(input.next());
                     waitForEnterAnyKey(input);
                     break;
+                case 6:
+                    System.out.println("Please enter movieId to borrow a movie");
+                    movieList.borrowMovieById(input.next());
+                    waitForEnterAnyKey(input);
+                    break;
+                case 7:
+                    System.out.println("Please enter movieId to return a movie");
+                    movieList.returnMovieById(input.next());
+                    waitForEnterAnyKey(input);
+                    break;
+
+
                 case 0:
                     sayGoodBye();
                     exit(1);

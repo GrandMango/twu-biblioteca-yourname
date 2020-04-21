@@ -76,43 +76,58 @@ public class BookList {
         return count;
     }
 
-    public boolean borrowBookById(String id) {
+    public Book findBookById(String id){
         for (Book book : bookList){
-            if (book.getId().equals(id)
-                    && book.getIsAvailable().equals("Available")) {
-                borrowBook(book);
-                System.out.println("Thank you!Enjoy your book");
-                return true;
+            if (book.getId().equals(id)) {
+                return book;
             }
         }
-        System.out.println("Sorry, that book is not available");
-        return false;
+        return null;
+    }
+
+    public Book findBookByName(String bookName){
+        for (Book book : bookList){
+            if (book.getBookName().equals(bookName)) {
+                return book;
+            }
+        }
+        return null;
+    }
+
+    public boolean borrowBookById(String id) {
+        Book book = findBookById(id);
+        if(book != null && book.getIsAvailable().equals("Available")) {
+            borrowBook(book);
+            System.out.println("Thank you!Enjoy your book");
+            return true;
+        } else {
+            System.out.println("Sorry, that book is not available");
+            return false;
+        }
     }
 
     public boolean borrowBookByName(String bookName) {
-        for (Book book : bookList){
-            if (book.getBookName().equals(bookName)
-                    && book.getIsAvailable().equals("Available")) {
-                borrowBook(book);
-                System.out.println("Thank you!Enjoy your book");
-                return true;
-            }
+        Book book = findBookByName(bookName);
+        if(book != null && book.getIsAvailable().equals("Available")) {
+            borrowBook(book);
+            System.out.println("Thank you!Enjoy your book");
+            return true;
+        } else {
+            System.out.println("Sorry, that book is not available");
+            return false;
         }
-        System.out.println("Sorry, that book is not available");
-        return false;
     }
 
     public boolean returnBookById(String id) {
-        for (Book book : bookList){
-            if (book.getId().equals(id)
-                    && book.getIsAvailable().equals("Unavailable")) {
-                returnBook(book);
-                System.out.println("Thank you for returning the book");
-                return true;
-            }
+        Book book = findBookById(id);
+        if(book != null && book.getIsAvailable().equals("Unavailable")) {
+            returnBook(book);
+            System.out.println("Thank you for returning the book");
+            return true;
+        } else {
+            System.out.println("That is not a valid book to return");
+            return false;
         }
-        System.out.println("That is not a valid book to return");
-        return false;
     }
 
     public void borrowBook(Book book){

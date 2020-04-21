@@ -8,9 +8,6 @@ public class Movie {
     private String rating;
     private String isAvailable;
 
-    public Movie() {
-    }
-
     public Movie(String id, String movieName, String directorName, String publishYear, String rating, String isAvailable) {
         this.id = id;
         this.movieName = movieName;

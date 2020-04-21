@@ -19,23 +19,6 @@ public class BibliotecaAppTest {
         movieList = new MovieList();
     }
 
-//    @Test
-//    public void testWelcomeMessage(){
-//        assertThat(Main.welcome(), equalTo("Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!"));
-//    }
 
-//    @Test
-//    public void testBorrowABook(){
-//        assertThat(bookList.printDetailList(), equalTo(9);
-//        bookList.borrowBook(bookList[3]);
-//        assertThat(bookList.printDetailList(), equalTo(8);
-//    }
-//
-//    @Test
-//    public void testReturnABook(){
-//        assertThat(bookList.printDetailList(), equalTo(9);
-//        bookList.borrowBook(bookList[6]);
-//        assertThat(bookList.printDetailList(), equalTo(10);
-//    }
 
 }
