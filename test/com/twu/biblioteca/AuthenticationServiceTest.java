@@ -15,8 +15,8 @@ public class AuthenticationServiceTest {
     @Before
     public void init(){
         authenticationService = new AuthenticationService();
-        username = "1";
-        password = "1";
+        username = "wrong";
+        password = "wrong";
     }
 
     @Test

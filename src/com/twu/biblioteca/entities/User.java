@@ -25,6 +25,29 @@ public class User {
         }
     }
 
+    public void showPersonalInfo(){
+        System.out.println("");
+        System.out.println("-----------------------------------------");
+        System.out.println("------------- User Profile --------------");
+
+        System.out.println("Username: " + username);
+        System.out.println("Email: " + email);
+        System.out.println("-----------------------------------------");
+        System.out.println("Borrowed books: ");
+        showBorroedBooks();
+        System.out.println("-----------------------------------------");
+    }
+
+    public void showBorroedBooks(){
+        if(borrowedBooks.isEmpty())
+            System.out.println("| None");
+        else {
+            for (Book book : borrowedBooks) {
+                System.out.println("| " + book.getId() + " " +  book.getBookName());
+            }
+        }
+    }
+
     public void addBorrowedBook(Book book){
         borrowedBooks.add(book);
     }
@@ -54,5 +77,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public ArrayList<Book> getBorrowedBooks() {
+        return borrowedBooks;
+    }
+
+    public void setBorrowedBooks(ArrayList<Book> borrowedBooks) {
+        this.borrowedBooks = borrowedBooks;
     }
 }

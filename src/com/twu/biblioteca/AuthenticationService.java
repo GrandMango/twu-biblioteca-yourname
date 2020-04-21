@@ -2,6 +2,8 @@ package com.twu.biblioteca;
 
 import com.twu.biblioteca.entities.User;
 
+import java.util.ArrayList;
+
 public class AuthenticationService {
     private User currentUser;
     private ExistUserList userList;
@@ -30,8 +32,8 @@ public class AuthenticationService {
         this.currentUser = currentUser;
     }
 
-    public ExistUserList getUserList() {
-        return userList;
+    public ArrayList<User> getUserList() {
+        return userList.getUserList();
     }
 
     public void setUserList(ExistUserList userList) {
