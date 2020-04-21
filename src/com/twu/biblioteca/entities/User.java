@@ -1,14 +1,18 @@
 package com.twu.biblioteca.entities;
 
+import java.util.ArrayList;
+
 public class User {
     private String username;
     private String password;
     private String email;
+    private ArrayList<Book> borrowedBooks;
 
     public User(String username, String password, String email) {
         this.username = username;
         this.password = password;
         this.email = email;
+        borrowedBooks = new ArrayList<Book>();
     }
 
     public User(String[] arr) {

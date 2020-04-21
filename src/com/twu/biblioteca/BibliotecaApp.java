@@ -12,12 +12,14 @@ public class BibliotecaApp {
     private MovieList movieList;
     private User currentUser;
     private AuthenticationService authenticationService;
+    private Scanner input;
 
     public BibliotecaApp() {
         bookList = new BookList();
         movieList = new MovieList();
         currentUser = null;
         authenticationService = new AuthenticationService();
+        input = new Scanner(System.in);
     }
 
     private String welcome() {
@@ -72,7 +74,6 @@ public class BibliotecaApp {
     public void run() {
         doLogin();
 
-        Scanner input = new Scanner(System.in);
         int option;
         while(true) {
             showMenu();
@@ -98,19 +99,12 @@ public class BibliotecaApp {
                     break;
                 case 4:
                     System.out.println("Please enter bookId or bookName to borrow a book");
-                    input.nextLine();
-                    String str = input.nextLine();
-
-                   if(str.matches("#[0-9]*"))
-                        bookList.borrowBookById(str);
-                    else
-                        bookList.borrowBookByName(str);
-
+                    borrowBook();
                     waitForEnterReturnKey(input);
                     break;
                 case 5:
                     System.out.println("Please enter bookId to return a book");
-                    bookList.returnBookById(input.next());
+                    returnBook();
                     waitForEnterReturnKey(input);
                     break;
                 case 6:
@@ -133,6 +127,20 @@ public class BibliotecaApp {
             }
 
         }
+    }
+
+    private void borrowBook() {
+        input.nextLine();
+        String str = input.nextLine();
+
+        if(str.matches("#[0-9]*"))
+            bookList.borrowBookById(str);
+        else
+            bookList.borrowBookByName(str);
+    }
+
+    private void returnBook() {
+        bookList.returnBookById(input.next());
     }
 
     public static void main(String[] args) {
