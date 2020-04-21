@@ -25,6 +25,13 @@ public class User {
         }
     }
 
+    public void addBorrowedBook(Book book){
+        borrowedBooks.add(book);
+    }
+
+    public void returnBorrowedBook(Book book){
+        borrowedBooks.remove(book);
+    }
     public String getUsername() {
         return username;
     }

@@ -133,10 +133,15 @@ public class BibliotecaApp {
         input.nextLine();
         String str = input.nextLine();
 
-        if(str.matches("#[0-9]*"))
+        if(str.matches("#[0-9]*")) {
             bookList.borrowBookById(str);
-        else
+            authenticationService.getCurrentUser().addBorrowedBook(
+                    bookList.findBookById(str));
+        } else {
             bookList.borrowBookByName(str);
+            authenticationService.getCurrentUser().addBorrowedBook(
+                    bookList.findBookByName(str));
+        }
     }
 
     private void returnBook() {
