@@ -1,7 +1,8 @@
 package com.twu.biblioteca;
 
 
-import java.util.ArrayList;
+import com.twu.biblioteca.entities.User;
+
 import java.util.Scanner;
 
 import static java.lang.System.exit;
@@ -9,10 +10,14 @@ import static java.lang.System.exit;
 public class BibliotecaApp {
     private BookList bookList;
     private MovieList movieList;
+    private User currentUser;
+    private AuthenticationService authenticationService;
 
     public BibliotecaApp() {
         bookList = new BookList();
         movieList = new MovieList();
+        currentUser = null;
+        authenticationService = new AuthenticationService();
     }
 
     private String welcome() {
@@ -26,7 +31,7 @@ public class BibliotecaApp {
         System.out.println("*****************************************");
         System.out.println("************ Control Panel **************");
         System.out.println("*****************************************");
-        System.out.println();
+        System.out.println("Welcome " + authenticationService.getCurrentUser().getUsername() + "!");
         System.out.println("Enter 1 to see the list of all library books.");
         System.out.println("Enter 2 to see the list of all library books in detail.");
         System.out.println("Enter 3 to see the list of all library movie resources.");
@@ -45,17 +50,27 @@ public class BibliotecaApp {
         System.out.println("************** Bye Bye! *****************");
     }
 
-    private void waitForEnterAnyKey(Scanner input) {
-        System.out.println("Enter any key to return Control Panel");
+    private void waitForEnterReturnKey(Scanner input) {
+        System.out.println("Enter 'q' to return Control Panel");
         input.next();
     }
 
-    public void run() {
-        try {
-            Thread.sleep(1500);
-        } catch(Exception e) {
-            e.printStackTrace();
+    private void doLogin(){
+        System.out.println("Please enter your username and password!");
+        while(true) {
+            System.out.printf("username: ");
+            Scanner input = new Scanner(System.in);
+            String username = input.nextLine();
+            System.out.printf("password: ");
+            String password = input.nextLine();
+
+            if (authenticationService.login(username, password) == true)
+                return;
         }
+    }
+
+    public void run() {
+        doLogin();
 
         Scanner input = new Scanner(System.in);
         int option;
@@ -71,15 +86,15 @@ public class BibliotecaApp {
             switch (option) {
                 case 1:
                     bookList.printOverviewList();
-                    waitForEnterAnyKey(input);
+                    waitForEnterReturnKey(input);
                     break;
                 case 2:
                     bookList.printDetailList();
-                    waitForEnterAnyKey(input);
+                    waitForEnterReturnKey(input);
                     break;
                 case 3:
                     movieList.printDetailList();
-                    waitForEnterAnyKey(input);
+                    waitForEnterReturnKey(input);
                     break;
                 case 4:
                     System.out.println("Please enter bookId or bookName to borrow a book");
@@ -91,22 +106,22 @@ public class BibliotecaApp {
                     else
                         bookList.borrowBookByName(str);
 
-                    waitForEnterAnyKey(input);
+                    waitForEnterReturnKey(input);
                     break;
                 case 5:
                     System.out.println("Please enter bookId to return a book");
                     bookList.returnBookById(input.next());
-                    waitForEnterAnyKey(input);
+                    waitForEnterReturnKey(input);
                     break;
                 case 6:
                     System.out.println("Please enter movieId to borrow a movie");
                     movieList.borrowMovieById(input.next());
-                    waitForEnterAnyKey(input);
+                    waitForEnterReturnKey(input);
                     break;
                 case 7:
                     System.out.println("Please enter movieId to return a movie");
                     movieList.returnMovieById(input.next());
-                    waitForEnterAnyKey(input);
+                    waitForEnterReturnKey(input);
                     break;
 
 
