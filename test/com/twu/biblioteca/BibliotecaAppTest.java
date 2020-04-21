@@ -10,11 +10,13 @@ import static org.junit.Assert.*;
 public class BibliotecaAppTest {
     private BibliotecaApp Main;
     private BookList bookList;
+    private MovieList movieList;
 
     @Before
     public void init(){
         Main = new BibliotecaApp();
         bookList = new BookList();
+        movieList = new MovieList();
     }
 
 //    @Test
