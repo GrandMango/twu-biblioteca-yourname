@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.entities.Movie;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;

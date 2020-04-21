@@ -35,6 +35,6 @@ public class MovieListTest {
         assertThat(movieList.borrowMovieByName("The Goblet of Fire"), equalTo(true));
         assertThat(movieList.borrowMovieByName("The Half-Blood Prince"), equalTo(false));
     }
-    
+
 
 }

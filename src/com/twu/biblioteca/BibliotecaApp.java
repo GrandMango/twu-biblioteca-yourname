@@ -28,7 +28,7 @@ public class BibliotecaApp {
         System.out.println("*****************************************");
         System.out.println();
         System.out.println("Enter 1 to see the list of all library books.");
-        System.out.println("Enter 2 to see the list of all library books in detail");
+        System.out.println("Enter 2 to see the list of all library books in detail.");
         System.out.println("Enter 3 to see the list of all library movie resources.");
         System.out.println("Enter 4 to borrow your favorite book.");
         System.out.println("Enter 5 to return book you borrowed before.");
