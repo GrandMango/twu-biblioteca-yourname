@@ -1,0 +1,24 @@
+TWU_Biblioteca-master\database>sqlite3 biblioteca.sqlite < q1.sql
+Anand Beck
+
+TWU_Biblioteca-master\database>sqlite3 biblioteca.sqlite < q2.sql
+37
+
+TWU_Biblioteca-master\database>sqlite3 biblioteca.sqlite < q3.sql
+Fellowship of the Ring
+1984
+Tom Sawyer
+Catcher in the Rye
+To Kill a Mockingbird
+Domain Driven Design
+Thin Red Line
+Crouching Tiger, Hidden Dragon
+Lawrence of Arabia
+Office Space
+
+TWU_Biblioteca-master\database>sqlite3 biblioteca.sqlite < q4.sql
+yuecheng
+
+TWU_Biblioteca-master\database>sqlite3 biblioteca.sqlite < q5.sql
+Anand Beck
+Frank Smith

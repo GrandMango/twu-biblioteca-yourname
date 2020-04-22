@@ -1,4 +1,4 @@
-select book.title
+select book.title 
 from  book where book.id not in (
 select checkout_item.book_id
 from checkout_item where checkout_item.book_id is not null
